@@ -1,0 +1,511 @@
+/* ============================================================
+   LETRA STUDIO — DETAIL & PELACAKAN RESERVASI
+   Clean Luxury · High Readability · Premium Dark Gold
+   ============================================================ */
+
+.wrapper {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  position: relative;
+  padding: 4rem 0 2rem;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  background: radial-gradient(ellipse at top center, rgba(201, 168, 76, 0.08) 0%, rgba(10, 10, 10, 0) 70%);
+}
+
+.headerBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.headerTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(1.85rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.headerSubtitle {
+  font-size: 0.925rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Top Navigation Bar */
+.topNavRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.75rem;
+  flex-wrap: wrap;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.backLink:hover {
+  color: var(--color-gold-primary);
+}
+
+.miniSearchForm {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.miniSearchInput {
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 8px;
+  padding: 0.45rem 0.85rem;
+  font-size: 0.825rem;
+  font-family: monospace;
+  color: #FFFFFF;
+  outline: none;
+  width: 220px;
+  transition: all 0.2s ease;
+}
+
+.miniSearchInput:focus {
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.15);
+}
+
+/* Lookup Card (When no reservation is loaded) */
+.lookupCard {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 16px;
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lookupForm {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1.5rem 0 1rem;
+}
+
+.lookupInput {
+  flex: 1;
+  background: #0E0E0E;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: #FFFFFF;
+  font-family: monospace;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.lookupInput:focus {
+  border-color: var(--color-gold-primary);
+}
+
+/* Two Column Grid */
+.detailGrid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+/* Main Detail Card */
+.mainCard {
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.codeBadgeRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.codeBadge {
+  font-family: monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.codeBadge:hover {
+  background: rgba(201, 168, 76, 0.2);
+}
+
+.packageName {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.badgesGroup {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Information Grid (2 Columns) */
+.infoSectionTitle {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-primary);
+  margin-bottom: 1rem;
+}
+
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  background: #0E0E0E;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.infoIcon {
+  color: var(--color-gold-primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.infoLabel {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.2rem;
+}
+
+.infoValue {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+/* Notes Section */
+.notesBox {
+  background: #0E0E0E;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 1.15rem;
+  margin-bottom: 1.75rem;
+}
+
+.notesLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-light);
+  margin-bottom: 0.35rem;
+}
+
+.notesText {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* Billing & Payment Block */
+.billingCard {
+  background: linear-gradient(135deg, #181818 0%, #111111 100%);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.billingHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 1rem;
+}
+
+.billingTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.billingTotal {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+}
+
+.billingRows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  font-size: 0.825rem;
+}
+
+.billingRow {
+  display: flex;
+  justify-content: space-between;
+  color: var(--color-text-secondary);
+}
+
+.billingRowVal {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+/* Payment Gateway Prompt */
+.paymentPrompt {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed rgba(201, 168, 76, 0.25);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Bottom Actions */
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+}
+
+.actionBtnGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+/* Right Sidebar: Timeline & Studio Info */
+.sidebarCard {
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 16px;
+  padding: 1.75rem;
+  position: sticky;
+  top: 100px;
+}
+
+.sidebarTitle {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-gold-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-bottom: 1.75rem;
+}
+
+.timelineItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.timelineItem:last-child {
+  padding-bottom: 0;
+}
+
+.timelineDot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #1A1A1A;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  z-index: 2;
+  font-size: 0.75rem;
+}
+
+.timelineDone .timelineDot {
+  background: rgba(76, 175, 136, 0.15);
+  border-color: #4CAF88;
+  color: #4CAF88;
+}
+
+.timelineActive .timelineDot {
+  background: rgba(201, 168, 76, 0.2);
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-light);
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+}
+
+.timelineLine {
+  position: absolute;
+  left: 13px;
+  top: 28px;
+  width: 2px;
+  height: calc(100% - 28px);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timelineLineDone {
+  background: #4CAF88;
+}
+
+.timelineText {
+  padding-top: 3px;
+}
+
+.timelineLabel {
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.timelineSub {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+  margin-top: 0.15rem;
+}
+
+/* Studio Quick Contact */
+.studioBox {
+  background: #0E0E0E;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.studioBoxTitle {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-gold-light);
+  margin-bottom: 0.5rem;
+}
+
+.studioBoxText {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarCard {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .infoGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+  }
+
+  .actionRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actionBtnGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actionBtnGroup a,
+  .actionBtnGroup button {
+    width: 100%;
+    justify-content: center;
+  }
+}

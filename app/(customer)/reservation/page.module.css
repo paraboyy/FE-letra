@@ -1,0 +1,800 @@
+/* Page Layout & Header */
+.wrapper {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+}
+
+.header {
+  position: relative;
+  padding: 4.5rem 0 2.5rem;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  background: radial-gradient(ellipse at top center, rgba(201, 168, 76, 0.08) 0%, rgba(10, 10, 10, 0) 70%);
+}
+
+.headerBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.headerTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.headerSubtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Stepper Base */
+.stepper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 2.5rem;
+  padding: 0 1rem;
+}
+
+.stepperItem {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.stepCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.825rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.stepActive {
+  background: rgba(201, 168, 76, 0.15) !important;
+  border-color: var(--color-gold-primary) !important;
+  color: var(--color-gold-primary) !important;
+  box-shadow: 0 0 16px rgba(201, 168, 76, 0.25);
+}
+
+.stepDone {
+  background: var(--color-gold-primary) !important;
+  border-color: var(--color-gold-primary) !important;
+  color: #0A0A0A !important;
+}
+
+.stepLabel {
+  font-size: 0.825rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.stepLabelActive {
+  color: #F0EDE8;
+  font-weight: 600;
+}
+
+.stepLine {
+  width: 48px;
+  height: 1px;
+  background: var(--color-border-subtle);
+  margin: 0 0.75rem;
+  transition: background 0.3s;
+}
+
+.stepLineDone {
+  background: var(--color-gold-primary);
+}
+
+/* Form Layout */
+.formLayout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: start;
+}
+
+.formMain {}
+
+.stepCard {
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-card);
+  padding: 2rem;
+  border-radius: 14px;
+}
+
+.stepTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #F0EDE8;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* Package Grid */
+.pkgGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.pkgOption {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.875rem;
+  padding: 1.125rem;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  background: var(--color-bg-secondary);
+}
+
+.pkgOption:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.pkgSelected {
+  border-color: var(--color-gold-primary) !important;
+  background: rgba(201, 168, 76, 0.07) !important;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.12);
+}
+
+.packageIconWrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pkgOptionHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.pkgOptionName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.pkgOptionMeta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  margin-top: 0.2rem;
+}
+
+.pkgOptionPrice {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+  white-space: nowrap;
+}
+
+.pkgCheckmark {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-gold-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* Personal Data Form */
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+/* Step 3: Schedule & Slot Refinements */
+.sectionHeaderGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.sectionGroupTitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #F0EDE8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dateDisplayPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.875rem;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 8px;
+  font-size: 0.825rem;
+  color: #F0EDE8;
+  margin-top: 0.5rem;
+}
+
+/* Time Slot Groups */
+.timeSlotSection {
+  margin-top: 1.75rem;
+}
+
+.timeCategoryGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.timeCategoryBox {
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 0.875rem;
+}
+
+.timeCategoryHeader {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #C9A84C;
+  margin-bottom: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.timeSlotsSubgrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.timeBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 0.4rem;
+  background: #1A1A1A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  color: #D6D3D1;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeBtn:hover {
+  background: #222222;
+  border-color: rgba(201, 168, 76, 0.35);
+  color: #F0EDE8;
+}
+
+.timeSelected {
+  background: var(--color-gold-primary) !important;
+  border-color: var(--color-gold-primary) !important;
+  color: #0A0A0A !important;
+  font-weight: 700 !important;
+  box-shadow: 0 0 12px rgba(201, 168, 76, 0.3);
+}
+
+/* Step 3: Photographer Selection Cards */
+.photographerSection {
+  margin-top: 2rem;
+}
+
+.photographerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-top: 0.75rem;
+}
+
+.photographerCard {
+  position: relative;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 1.125rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.photographerCard:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.photographerSelected {
+  border-color: var(--color-gold-primary) !important;
+  background: rgba(201, 168, 76, 0.06) !important;
+  box-shadow: 0 0 20px rgba(201, 168, 76, 0.15) !important;
+}
+
+.photographerTop {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.photographerAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C9A84C 0%, #9B7A2F 100%);
+  color: #0A0A0A;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+}
+
+.photographerMeta {
+  display: flex;
+  flex-direction: column;
+}
+
+.photographerName {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.photographerExp {
+  font-size: 0.75rem;
+  color: #8C8680;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 0.15rem;
+}
+
+.photographerSpecialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.specialtyPill {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: #C9A84C;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+}
+
+.photographerAvatarImg {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #C9A84C;
+  flex-shrink: 0;
+}
+
+.photographerCardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.viewPortfolioBtn {
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  color: #C9A84C;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: all 0.2s ease;
+}
+
+.viewPortfolioBtn:hover {
+  background: rgba(201, 168, 76, 0.18);
+  border-color: #C9A84C;
+  color: #E0C068;
+  transform: translateY(-1px);
+}
+
+.selectPhotographerBtn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #D6D3D1;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  transition: all 0.2s ease;
+}
+
+.selectPhotographerBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+}
+
+.selectedBtnActive {
+  background: #C9A84C !important;
+  border-color: #C9A84C !important;
+  color: #0A0A0A !important;
+  font-weight: 700 !important;
+}
+
+/* Step 4: Review Box */
+.reviewBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.reviewRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.reviewRow:last-of-type {
+  border-bottom: none;
+}
+
+.reviewLabel {
+  color: var(--color-text-muted);
+}
+
+.reviewValue {
+  color: #F0EDE8;
+  font-weight: 600;
+  text-align: right;
+}
+
+.reviewTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.875rem;
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+  font-size: 1rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.reviewTotalAmount {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+}
+
+/* Form Navigation */
+.formNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+/* Sidebar Summary */
+.formSidebar {}
+
+.summaryCard {
+  border: 1px solid var(--color-border-subtle);
+  background: var(--color-bg-card);
+  padding: 1.5rem;
+  border-radius: 14px;
+  position: sticky;
+  top: 96px;
+}
+
+.summaryCardTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.sidebarPkg {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebarPkgName {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.sidebarPkgMeta {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+.sidebarPkgPrice {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+  margin-top: 0.25rem;
+}
+
+.placeholderText {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.sidebarDetail {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.825rem;
+  color: #D6D3D1;
+  margin-top: 0.75rem;
+}
+
+.sidebarTotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #8C8680;
+}
+
+.sidebarTotalVal {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+}
+
+/* Success Screen */
+.successWrapper {
+  padding-top: 100px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 4rem;
+}
+
+.successCard {
+  max-width: 620px;
+  margin: 0 auto;
+  border: 1px solid var(--color-border-subtle);
+  padding: 3rem 2.25rem;
+  text-align: center;
+  border-radius: 16px;
+  background: var(--color-bg-card);
+}
+
+.successIcon {
+  display: inline-flex;
+  margin-bottom: 1rem;
+}
+
+.successTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: #F0EDE8;
+  margin: 0.5rem 0;
+}
+
+.successSub {
+  font-size: 0.875rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+
+.bookingCode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 1.125rem;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px dashed var(--color-gold-primary);
+  border-radius: 10px;
+  margin-bottom: 1.75rem;
+}
+
+.bookingCodeLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-gold-primary);
+  font-weight: 600;
+}
+
+.bookingCodeValue {
+  font-family: monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #F0EDE8;
+  letter-spacing: 0.08em;
+}
+
+.bookingCodeHint {
+  font-size: 0.72rem;
+  color: var(--color-text-muted);
+}
+
+.summaryBox {
+  background: var(--color-bg-secondary);
+  border-radius: 10px;
+  padding: 1.125rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.825rem;
+  color: var(--color-text-secondary);
+}
+
+.summaryVal {
+  color: #F0EDE8;
+  font-weight: 600;
+}
+
+.payBox {
+  text-align: left;
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.payTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #F0EDE8;
+  margin-bottom: 0.5rem;
+}
+
+.payText {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.bankList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.bankItem {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.35rem;
+}
+
+.bankName {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--color-gold-primary);
+}
+
+.bankHolder {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+.bankNumber {
+  font-family: monospace;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.successActions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.errorAlert {
+  background: rgba(224, 85, 85, 0.1);
+  border: 1px solid rgba(224, 85, 85, 0.3);
+  color: var(--color-danger);
+  padding: 0.875rem 1.25rem;
+  border-radius: 8px;
+  font-size: 0.825rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .formLayout {
+    grid-template-columns: 1fr;
+  }
+  .pkgGrid,
+  .timeCategoryGrid,
+  .bankList {
+    grid-template-columns: 1fr;
+  }
+}

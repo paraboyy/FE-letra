@@ -1,0 +1,163 @@
+/* Shared admin page styles */
+
+.page { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 10px;
+  padding: 0.625rem 1rem;
+  flex: 1;
+  max-width: 400px;
+  color: var(--color-text-muted);
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+
+.searchInput::placeholder { color: var(--color-text-muted); }
+
+.actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+.filterSelect {
+  width: auto !important;
+  font-size: 0.85rem;
+  padding: 0.625rem 2rem 0.625rem 0.875rem;
+}
+
+/* Stats Row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.miniStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  text-align: center;
+  border: 1px solid var(--color-border-subtle);
+  padding: 1rem;
+}
+
+.miniStatValue {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.miniStatLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+}
+
+/* Table Card */
+.tableCard { border: 1px solid var(--color-border-subtle); padding: 0; overflow: hidden; }
+
+/* Table extras */
+.resId { font-family: monospace; font-size: 0.78rem; color: var(--color-text-muted); }
+.customerName { font-weight: 500; font-size: 0.875rem; }
+.customerPhone { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 2px; }
+.timeText { font-size: 0.75rem; color: var(--color-text-muted); margin-top: 2px; }
+.amount { font-weight: 600; font-family: 'Playfair Display', serif; }
+
+.statusSelect {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 8px;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Inter', sans-serif;
+}
+
+.rowActions { display: flex; gap: 0.25rem; }
+
+/* Customer Cards */
+.customerGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.customerCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-border-subtle);
+  transition: all 0.2s;
+}
+
+.customerCard:hover {
+  border-color: rgba(201,168,76,0.3);
+  transform: translateY(-2px);
+}
+
+.customerHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #C9A84C, #9B7A2F);
+  color: #0A0A0A;
+  font-weight: 700;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.customerInfo { flex: 1; }
+.customerName { font-size: 0.925rem; font-weight: 600; }
+.customerId { font-size: 0.7rem; color: var(--color-text-muted); font-family: monospace; }
+
+.customerDetails { display: flex; flex-direction: column; gap: 0.5rem; }
+.detailItem { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--color-text-secondary); }
+.detailIcon { font-size: 0.9rem; }
+
+.customerStats { display: flex; align-items: center; gap: 1rem; }
+.custStat { flex: 1; text-align: center; }
+.custStatValue { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 600; color: var(--color-gold-primary); }
+.custStatLabel { font-size: 0.7rem; color: var(--color-text-muted); margin-top: 2px; }
+.custStatDivider { width: 1px; height: 36px; background: var(--color-border-subtle); }
+
+.cardActions { display: flex; gap: 0.625rem; margin-top: 0.5rem; }
+
+@media (max-width: 1200px) {
+  .statsRow { grid-template-columns: repeat(2, 1fr); }
+  .customerGrid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .header { flex-direction: column; align-items: stretch; }
+  .searchBox { max-width: none; }
+  .statsRow { grid-template-columns: repeat(2, 1fr); }
+  .customerGrid { grid-template-columns: 1fr; }
+}

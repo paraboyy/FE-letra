@@ -1,0 +1,460 @@
+/* ============================================================
+   LETRA STUDIO — CLIENT SESSION HISTORY (RIWAYAT SESI)
+   User-Friendly · Luxury Dark Gold · Editorial Cards
+   ============================================================ */
+
+.wrapper {
+  padding-top: 80px;
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Page Header */
+.header {
+  position: relative;
+  padding: 4.5rem 0 2.75rem;
+  text-align: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(201, 168, 76, 0.12);
+  background: radial-gradient(ellipse at top center, rgba(201, 168, 76, 0.08) 0%, rgba(10, 10, 10, 0) 70%);
+}
+
+.headerBg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 0%, rgba(201, 168, 76, 0.06) 0%, transparent 60%);
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.headerTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  margin: 0.5rem 0 0.75rem;
+}
+
+.headerSubtitle {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Stats Metrics Row */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.statCard {
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.statCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(201, 168, 76, 0.4);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.statIconWrap {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-primary);
+  flex-shrink: 0;
+}
+
+.statInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.statValue {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  margin-top: 0.2rem;
+}
+
+/* Filter & Search Bar */
+.filterBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.filterPills {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filterPills::-webkit-scrollbar {
+  display: none;
+}
+
+.filterPill {
+  padding: 0.5rem 1.15rem;
+  border-radius: 9999px;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--color-text-secondary);
+  font-size: 0.825rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.filterPill:hover {
+  background: #202020;
+  border-color: rgba(201, 168, 76, 0.3);
+  color: #FFFFFF;
+}
+
+.filterPillActive {
+  background: rgba(201, 168, 76, 0.15);
+  border-color: var(--color-gold-primary);
+  color: var(--color-gold-light);
+  font-weight: 600;
+  box-shadow: 0 0 14px rgba(201, 168, 76, 0.15);
+}
+
+.searchBox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 260px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.85rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 9999px;
+  padding: 0.55rem 1rem 0.55rem 2.35rem;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.searchInput:focus {
+  border-color: var(--color-gold-primary);
+  box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.15);
+}
+
+/* History Reservation Cards */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.resCard {
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: stretch;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.resCard:hover {
+  border-color: rgba(201, 168, 76, 0.5);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.6), 0 0 24px rgba(201, 168, 76, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Left Date Banner */
+.resDateBanner {
+  background: linear-gradient(180deg, #1A1A1A 0%, #111111 100%);
+  border-right: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-width: 130px;
+}
+
+.resDateDay {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+  line-height: 1;
+}
+
+.resDateMonth {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #FFFFFF;
+  margin-top: 0.25rem;
+}
+
+.resDateYear {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+}
+
+/* Center Details */
+.resCenter {
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.resTopRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.resIdBadge {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: var(--color-gold-light);
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.resIdBadge:hover {
+  background: rgba(201, 168, 76, 0.2);
+}
+
+.resPkgName {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.resMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.825rem;
+  color: var(--color-text-secondary);
+}
+
+.resMetaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+/* Right Finance & Actions */
+.resRight {
+  padding: 1.5rem 1.75rem;
+  background: #111111;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-width: 240px;
+  gap: 1rem;
+}
+
+.resBadgesWrap {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.resPriceWrap {
+  text-align: right;
+}
+
+.resPriceVal {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--color-gold-primary);
+  line-height: 1.2;
+}
+
+.resPriceRemaining {
+  font-size: 0.72rem;
+  color: #F0A050;
+  margin-top: 0.15rem;
+  font-weight: 500;
+}
+
+.resActionsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* Empty State Card */
+.emptyCard {
+  background: #141414;
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  border-radius: 16px;
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.emptyIconWrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-primary);
+}
+
+.emptyTitle {
+  font-family: var(--font-display, 'Playfair Display', serif);
+  font-size: 1.45rem;
+  color: #FFFFFF;
+}
+
+.emptyDesc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  max-width: 440px;
+  line-height: 1.6;
+}
+
+/* Floating Bottom Booking CTA */
+.newResCta {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0 3rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resCard {
+    grid-template-columns: 1fr;
+  }
+
+  .resDateBanner {
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .resRight {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    align-items: flex-start;
+  }
+
+  .resPriceWrap {
+    text-align: left;
+  }
+
+  .resBadgesWrap {
+    justify-content: flex-start;
+  }
+
+  .resActionsRow {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .statsRow {
+    grid-template-columns: 1fr;
+  }
+
+  .filterBar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+}
+

@@ -1,0 +1,328 @@
+.wrapper {
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+/* Page Header */
+.header {
+  position: relative;
+  padding: 4.5rem 0 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.headerBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201, 168, 76, 0.08) 0%, transparent 70%);
+}
+
+.headerContent {
+  position: relative;
+  z-index: 1;
+}
+
+.headerTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin: 0.75rem 0;
+}
+
+.headerSubtitle {
+  color: var(--color-text-secondary);
+  font-size: 1rem;
+  max-width: 580px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* Category Filter Bar */
+.categoryBar {
+  display: flex;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+
+.categoryPill {
+  padding: 0.5rem 1.125rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #141414;
+  color: var(--color-text-secondary);
+  font-size: 0.825rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.categoryPill:hover {
+  border-color: rgba(201, 168, 76, 0.4);
+  color: var(--color-text-primary);
+}
+
+.categoryPillActive {
+  background: #C9A84C !important;
+  color: #0A0A0A !important;
+  font-weight: 600 !important;
+  border-color: transparent !important;
+}
+
+/* Comparison Banner */
+.compBanner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  background: #131313;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 14px;
+  padding: 1.25rem 1.75rem;
+  margin-bottom: 3rem;
+}
+
+.compBannerLeft {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.bannerIconWrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(201, 168, 76, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bannerTitle {
+  font-size: 0.925rem;
+  font-weight: 600;
+  color: #F0EDE8;
+  margin-bottom: 0.2rem;
+}
+
+.bannerSub {
+  font-size: 0.825rem;
+  color: #8C8680;
+}
+
+/* Packages Grid */
+.packagesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.packageCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #121212;
+  border-radius: 16px;
+  padding: 1.75rem;
+  transition: all 0.3s ease;
+}
+
+.packageCard:hover {
+  border-color: rgba(201, 168, 76, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.6);
+}
+
+.popularCard {
+  border-color: rgba(201, 168, 76, 0.6);
+  background: linear-gradient(135deg, #161616, rgba(201, 168, 76, 0.04));
+  box-shadow: 0 4px 28px rgba(201, 168, 76, 0.12);
+}
+
+.popularBadge {
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #C9A84C;
+  color: #0A0A0A;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 1.25rem;
+  border-radius: 0 0 10px 10px;
+  white-space: nowrap;
+}
+
+.pkgHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding-top: 0.5rem;
+}
+
+.categoryBadge {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #C9A84C;
+}
+
+.pkgName {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.pkgDesc {
+  font-size: 0.85rem;
+  color: #8C8680;
+  line-height: 1.65;
+}
+
+.pkgMeta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.625rem;
+  padding: 0.875rem 0.75rem;
+  background: #171717;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+
+.pkgMetaItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.pkgMetaLabel {
+  font-size: 0.68rem;
+  color: #6B6560;
+}
+
+.pkgMetaValue {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.pkgFeatures {
+  flex: 1;
+}
+
+.pkgFeaturesTitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6B6560;
+  margin-bottom: 0.875rem;
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 0.85rem;
+  color: #C5BFB8;
+}
+
+.pkgFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pkgPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.pkgPriceLabel {
+  font-size: 0.7rem;
+  color: #6B6560;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pkgPriceAmount {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+/* FAQ */
+.faqSection {
+  margin-top: 5.5rem;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.faqCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 1.75rem;
+  border-radius: 14px;
+}
+
+.faqQuestion {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #F0EDE8;
+}
+
+.faqAnswer {
+  font-size: 0.875rem;
+  color: #8C8680;
+  line-height: 1.7;
+}
+
+@media (max-width: 1024px) {
+  .packagesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .packagesGrid,
+  .faqGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .compBanner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .compBannerLeft {
+    flex-direction: column;
+  }
+
+  .pkgMeta {
+    grid-template-columns: 1fr;
+  }
+}
